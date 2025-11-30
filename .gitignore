@@ -1,0 +1,29 @@
+# Ignorar node_modules
+node_modules/
+
+# Ignorar archivos de logs generados por npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Ignorar directorios generados por herramientas de construcción
+dist/
+dist-ssr/
+*.local
+
+# Ignorar archivos específicos del sistema operativo
+.DS_Store
+
+# Ignorar configuraciones de IDEs
+.vscode/*
+.idea/
+
+# Archivos de proyecto de Visual Studio
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Archivos temporales o de caché
+*.log
