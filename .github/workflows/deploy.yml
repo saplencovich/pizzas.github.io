@@ -3,32 +3,31 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main 
+      - main  # Se ejecuta cuando se hace un push a la rama main
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest  # Utiliza un entorno Ubuntu
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v3  # Se encarga de obtener el código del repositorio
 
     - name: Set up Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v3  # Configura Node.js
       with:
-        node-version: '16'
+        node-version: '20'  # Asegúrate de que sea una versión compatible (20.19+ o 22.12+)
 
     - name: Install dependencies
-      run: |
-        npm install  # Instala las dependencias necesarias
+      run: npm install  # Instala todas las dependencias del proyecto
 
     - name: Build the project
-      run: |
-        npm run build  # Construye la aplicación en producción (esto genera la carpeta dist/)
+      run: npm run build  # Construye la aplicación
 
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@v3  # Usa la acción para desplegar a GitHub Pages
       with:
-        personal_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist  
-        publish_branch: gh-pages
+        personal_token: ${{ secrets.GITHUB_TOKEN }}  # Token de GitHub para autenticar
+        publish_dir: ./dist  # Publica la carpeta 'dist' generada en la construcción
+        publish_branch: gh-pages  # Publica en la rama 'gh-pages'
+
