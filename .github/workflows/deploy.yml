@@ -25,9 +25,9 @@ jobs:
       run: npm run build  # Construye la aplicación
 
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3  # Usa la acción para desplegar a GitHub Pages
-      with:
-        personal_token: ${{ secrets.GITHUB_TOKEN }}  # Token de GitHub para autenticar
-        publish_dir: ./dist  # Publica la carpeta 'dist' generada en la construcción
-        publish_branch: gh-pages  # Publica en la rama 'gh-pages'
+  uses: peaceiris/actions-gh-pages@v3
+  with:
+    personal_token: ${{ secrets.GITHUB_TOKEN }}  # Asegúrate de que se está usando el GITHUB_TOKEN correcto
+    publish_dir: ./dist
+    publish_branch: gh-pages
 
